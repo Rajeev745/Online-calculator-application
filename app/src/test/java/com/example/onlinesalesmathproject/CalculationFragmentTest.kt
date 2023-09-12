@@ -2,8 +2,12 @@ package com.example.onlinesalesmathproject
 
 import com.example.onlinesalesmathproject.calculation.CalculationFragment
 import org.junit.Assert
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
+import org.mockito.Mockito
+import org.mockito.Mockito.`when`
+import java.util.*
 
 class CalculationFragmentTest {
 

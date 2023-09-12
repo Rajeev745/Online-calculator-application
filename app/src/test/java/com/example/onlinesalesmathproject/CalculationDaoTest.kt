@@ -1,29 +1,27 @@
 package com.example.onlinesalesmathproject
 
+import android.content.Context
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.onlinesalesmathproject.history.database.CalculationDao
 import com.example.onlinesalesmathproject.history.database.CalculationData
 import com.example.onlinesalesmathproject.history.database.CalculationDatabase
 import com.example.onlinesalesmathproject.history.database.getOrAwaitValue
 import kotlinx.coroutines.runBlocking
 import org.junit.*
-import org.junit.runner.RunWith
 
-@RunWith(AndroidJUnit4::class)
 class CalculationDaoTest {
 
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
-    val context = ApplicationProvider.getApplicationContext<OnlineSalesApplication>()
 
     lateinit var calculationDao: CalculationDao
     lateinit var calculationDatabase: CalculationDatabase
 
     @Before
     fun setUp() {
+        val context = ApplicationProvider.getApplicationContext<Context>()
         calculationDatabase = Room.inMemoryDatabaseBuilder(
             context, CalculationDatabase::class.java
         ).allowMainThreadQueries().build()
